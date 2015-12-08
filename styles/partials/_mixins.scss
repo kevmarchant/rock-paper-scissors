@@ -1,0 +1,52 @@
+@function parseInt($n) {
+	@return $n / ($n * 0 + 1);
+}
+
+@mixin rem($property, $values) {
+	$px : ();
+	$rem: ();
+
+	@each $value in $values {
+
+		@if $value == 0 or $value == auto {
+			$px : append($px , $value);
+			$rem: append($rem, $value);
+		}
+
+		@else {
+			$unit: unit($value);
+			$val: parseInt($value);
+
+			@if $unit == "px" {
+				$px : append($px,	$value);
+				$rem: append($rem, ($val / 10 + rem));
+			}
+
+			@if $unit == "rem" {
+				$px : append($px,	($val * 10 + px));
+				$rem: append($rem, $value);
+			}
+		}
+	}
+
+	@if $px == $rem {
+		#{$property}: $px;
+	} @else {
+		#{$property}: $px;
+		#{$property}: $rem;
+	}
+}
+
+@mixin bounce($position) {
+    0%   { background-position: $position 50%; }
+    10%  { background-position: $position 45%; }
+    20%  { background-position: $position 50%; }
+    30%  { background-position: $position 65%; }
+    40%  { background-position: $position 50%; }
+    50%  { background-position: $position 45%; }
+    60%  { background-position: $position 50%; }
+    70%  { background-position: $position 65%; }
+    80%  { background-position: $position 50%; }
+    90%  { background-position: $position 45%; }
+    100% { background-position: $position 50%; }
+}

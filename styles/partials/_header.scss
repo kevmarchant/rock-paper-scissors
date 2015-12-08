@@ -1,0 +1,14 @@
+header {
+	margin: 40px 0;
+	text-align: center;
+	
+	h1 {
+		@include rem(font-size, 3rem);
+	}
+	
+	strong {
+		display: block;
+		margin: 10px 0 0;
+		color: #aaa;
+	}
+}

@@ -1,0 +1,135 @@
+section.player-container {
+	width: 100%;
+	height: 200px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	
+	.hand {
+		position: relative;
+		width: 100%;
+		height: 200px;
+		background-repeat: no-repeat;
+		
+		div {
+			position: absolute;
+			bottom: 0;
+			opacity: 0;
+			width: 100%;
+			padding: 12px 0;
+			text-align: center;
+			background: rgba(0, 0, 0, 0.1);
+			transition: opacity 0.3s;
+			
+			&.visible {
+				opacity: 1;
+			}
+			
+			&.win {
+				background: rgba(31, 200, 31, 0.2);
+			}
+			
+			&.lose {
+				background: rgba(220, 59, 37, 0.2);
+			}
+			
+			&.draw {
+				background: rgba(249, 204, 51, 0.2);
+			}
+		}
+	}
+	
+	&#player-one {
+		float: left;
+		
+		.hand {
+			background-position: left 50%;
+		
+			&.human {
+			
+				&.neutral { @extend %human-neutral-left; }
+				&.Rock { @extend %human-rock-left; }
+				&.Paper { @extend %human-paper-left; }
+				&.Scissors { @extend %human-scissors-left; }
+			}
+		
+			&.robot {
+			
+				&.neutral { @extend %robot-neutral-left; }
+				&.Rock { @extend %robot-rock-left; }
+				&.Paper { @extend %robot-paper-left; }
+				&.Scissors { @extend %robot-scissors-left; }
+			}
+			
+			&.bounce {
+			    animation: animatedBackgroundLeft 1s linear normal;
+			    -moz-animation: animatedBackgroundLeft 1s linear normal;
+			    -webkit-animation: animatedBackgroundLeft 1s linear normal;
+			    -ms-animation: animatedBackgroundLeft 1s linear normal;
+			    -o-animation: animatedBackgroundLeft 1s linear normal;
+			}
+		}
+	}
+	
+	&#player-two {
+		float: right;
+		
+		.hand {
+			background-position: right center;
+		
+			&.human {
+			
+				&.neutral { @extend %human-neutral-right; }
+				&.Rock { @extend %human-rock-right; }
+				&.Paper { @extend %human-paper-right; }
+				&.Scissors { @extend %human-scissors-right; }
+			}
+		
+			&.robot {
+			
+				&.neutral { @extend %robot-neutral-right; }
+				&.Rock { @extend %robot-rock-right; }
+				&.Paper { @extend %robot-paper-right; }
+				&.Scissors { @extend %robot-scissors-right; }
+			}
+			
+			&.bounce {
+			    animation: animatedBackgroundRight 1s linear normal;
+			    -moz-animation: animatedBackgroundRight 1s linear normal;
+			    -webkit-animation: animatedBackgroundRight 1s linear normal;
+			    -ms-animation: animatedBackgroundRight 1s linear normal;
+			    -o-animation: animatedBackgroundRight 1s linear normal;
+			}
+		}
+	}
+}
+
+@keyframes animatedBackgroundLeft {
+	@include bounce(left);
+}
+@-moz-keyframes animatedBackgroundLeft {
+	@include bounce(left);
+}
+@-webkit-keyframes animatedBackgroundLeft {
+	@include bounce(left);
+}
+@-ms-keyframes animatedBackgroundLeft {
+	@include bounce(left);
+}
+@-o-keyframes animatedBackgroundLeft {
+	@include bounce(left);
+}
+@keyframes animatedBackgroundRight {
+	@include bounce(right);
+}
+@-moz-keyframes animatedBackgroundRight {
+	@include bounce(right);
+}
+@-webkit-keyframes animatedBackgroundRight {
+	@include bounce(right);
+}
+@-ms-keyframes animatedBackgroundRight {
+	@include bounce(right);
+}
+@-o-keyframes animatedBackgroundRight {
+	@include bounce(right);
+}

@@ -1,0 +1,27 @@
+#player-one-choice-selection, #player-two-choice-selection {
+	width: 43%;
+	
+	a {
+		display: inline-block;
+		color: #333;
+		margin: 10px 0 0;
+		padding: 10px 15px;
+		text-decoration: none;
+		background: #ddd;
+		border-radius: 6px;
+		
+		&.selected {
+			color: #fff;
+			background: #4387fd;
+		}
+	}
+}
+
+#player-one-choice-selection {
+	float: left;
+}
+
+#player-two-choice-selection {
+	float: right;
+	text-align: right;
+}
